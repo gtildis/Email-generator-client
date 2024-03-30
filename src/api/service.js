@@ -14,7 +14,7 @@ const errorHandler = (err) => {
 
 const getCompanies = () => {
 	return api
-		.get("/")
+		.get("/companies")
 		.then((res) => res.data)
 		.catch(errorHandler);
 };
