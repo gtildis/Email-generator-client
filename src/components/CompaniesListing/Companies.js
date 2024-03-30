@@ -1,6 +1,7 @@
 import "./Companies.css";
 import { useState, useEffect } from "react";
 import service from "../../api/service";
+import { Link } from "react-router-dom";
 
 function CompaniesListing() {
 	const [companies, setCompanies] = useState([]);
@@ -19,20 +20,27 @@ function CompaniesListing() {
 
 	return (
 		<div className="companies-listing-container">
-			<h2>Companies</h2>
+			<h2>Listed Companies</h2>
 			<div>
 				{companies &&
 					companies.map((company) => (
 						<div className="company-info" key={company._id}>
-							<h3>{company.name}</h3>
+							<div className="title">
+								<h3>{company.name}</h3>
+							</div>
 							{/* <img src={movie.imageUrl} alt="movie" width="200" /> */}
-							<p>{company.description}</p>
-							<p>{company.email}</p>
-							<br />
-							{/* remove br later */}
+							<div className="description">
+								<p>{company.description}</p>
+							</div>
+							<div className="email">
+								<p>{company.email}</p>
+							</div>
 						</div>
 					))}
 			</div>
+			<Link className="button button_add" to="/companies/add">
+				<span>+</span>
+			</Link>
 		</div>
 	);
 }
