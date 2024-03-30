@@ -24,9 +24,12 @@ function CompaniesListing() {
 				{companies &&
 					companies.map((company) => (
 						<div className="company-info" key={company._id}>
-							<p>{company.name}</p>
+							<h3>{company.name}</h3>
 							{/* <img src={movie.imageUrl} alt="movie" width="200" /> */}
 							<p>{company.description}</p>
+							<p>{company.email}</p>
+							<br />
+							{/* remove br later */}
 						</div>
 					))}
 			</div>
